@@ -6,11 +6,19 @@ import FilteredFruitList from './FilteredFruitList.js';
 const FruitBasket = props=> {
   return (
     <div className="fruit-basket">
-      <Filter handleChange={props.handleChange} />
+      <Filter handleChange={props.updateFilterCallback} filters={props.filters} />
       <FilteredFruitList
-        filter={props.selectedFilter} />
+        fruit={props.fruit} 
+        filter={props.currentFilter} />
     </div>
   );
+}
+
+FruitBasket.defaultProps = {
+	fruit: [],
+	filters: [],
+	currentFilter: [],
+	updateFilterCallback: null
 }
 
 export default FruitBasket;
